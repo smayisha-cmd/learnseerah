@@ -8,6 +8,7 @@ export default function handler(req, res) {
   };
 
   const { ref } = req.query;
+
   if (!database[ref]) {
     return res.status(404).json({ error: "Reference not found" });
   }
