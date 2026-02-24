@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Global Seerah Learning Platform&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="manifest" href="manifest.json" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if ('serviceWorker' in navigator) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>navigator.serviceWorker.register('service-worker.js');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: Arial; margin: 0; background: #f4f6f8; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header { background: #0b3d2e; color: white; padding: 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button { padding: 8px 12px; margin: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.module { background: white; margin: 10px; padding: 15px; border-radius: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.arabic { direction: rtl; font-family: serif; font-size: 18px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Seerah of Prophet Muhammad ﷺ&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onclick="toggleArabic()"&gt;Toggle Arabic&lt;/button&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="module"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;First Revelation&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p id="english"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>The Prophet ﷺ received the first revelation in Cave Hira.</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p id="arabic" class="arabic" style="display:none;"&gt;</p>
+<p dir="rtl" class="p1"><span class="Apple-converted-space">    </span>اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onclick="loadCitation()"&gt;Load Reference&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;pre id="citation"&gt;&lt;/pre&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">function toggleArabic() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ar = document.getElementById('arabic');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>ar.style.display = ar.style.display === 'none' ? 'block' : 'none';</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">async function loadCitation() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const res = await fetch('/api/citations?ref=Q96:1-5');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const data = await res.json();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('citation').textContent =</p>
+<p class="p1"><span class="Apple-converted-space">    </span>JSON.stringify(data, null, 2);</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
